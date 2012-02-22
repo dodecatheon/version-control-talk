@@ -1,0 +1,84 @@
+% Version Control:  Why, What and How
+% Ted Stern
+% February 23, 2012
+
+# Introduction
+Some thoughts about how to use Version Control and how it fits into Software Configuration Management (SCM).
+
+# Current outline
+
+I volunteered to give this talk after hearing that another person in my group
+had voluntarily abandoned an existing Subversion repository, and had simply
+initialized a new repository with none of the previous history.  To me, this
+was like burning down the library at Alexandria.  I was aghast -- he
+completely missed the point of version control.
+
+So I'm speaking to combat ignorance like that.
+
+# Why you should do it
+
+The first part is a manifesto: why you need to pay
+attention to version control.
+
+# Obvious reasons
+> - State recovery:  you can get back to a previous known working version
+> -
+
+# Non-obvious desiderata:
+
+- Track only the source, not the build products.
+- Directories and binaries can be tracked by good VC software, not just individual files.
+- Atomic commits:  changes should all happen together.
+
+What people don't really seem to understand, though, is branching and merging, and why this is a Good Thing.
+
+# What you want to do
+The next part of the talk is going to discuss my preferred style for branching, merging, tagging, and how this can work on a project:
+
+# Checkout a working copy, change, save, commit
+
+# Branch/Merge, a "meta" version of checkout/change/save/commit
+> - Mainline trunk for development.  The trunk should always "work".
+> - Branch for any change bigger than "a day".
+> - Branch for bug fixes.
+> - Branch for features.
+> - Branch for feature-freeze / release.
+> - Tags should be cheap.  Tag specific versions or branch locations.
+
+# The right way to Merge:
+> - merge from parent to child often
+> -- to keep track of orthogonal changes and avoid conflicts.
+> - One final merge from parent to child,
+> -- before reintegrating merge from child back to parent again.
+
+# Issue Tracking
+Then I'm going to talk about issue tracking, and why it is a Good
+Thing to have it coordinated with your VCS/SCM.
+
+> - Ticket can track multiple changes on a branch, for bug, feature, release.
+> - If you have good issue tracking and mod integration, you can tie together a set of mods into one composite mod.
+
+# How you do it
+There is no best Version Control software, and you can't really say that there is one until each of those tasks in Part 2 is easy, intuitive, and architecture independent.
+
+That said, the best we've got right now are Subversion and Git.
+
+# Strengths of Subversion, vs. Strengths of Git
+Issue tracking that works with either Subversion  or Git.  Again, there is no best software that does everything we want.
+
+> - Examples of checkout/commit and branch/merge cycle in Subversion and Git.
+
+# Conclusions, part 1
+> - Pick the VCS that is closest to the model for your project (centralized vs. distributed; consolidated source vs. lots of forking).
+
+> - Use an issue tracker that automatically integrates with your VCS.
+> - If you have to wrap your VCS in helper scripts, it is not the best tool for your project, though it may be the best currently available.  Always ask yourself: "Is this tool helping me more than it gets in the way?"  If it gets in the way more than 20% of the time, it is time to find a new tool.
+
+# Conclusions, part 2 ...
+Subversion, Git, et al. are actively developed, so don't freeze your VC/SCM
+model.  Be ready to change to a better method **when**, *not if* it becomes available.  Ensure that you can convert your existing version history and issue tracking to new systems.
+
+# Conclusions, part 3 ...
+## There is no best software
+- Subversion vs. Git:
+ - http://www.codeforest.net/git-vs-svn
