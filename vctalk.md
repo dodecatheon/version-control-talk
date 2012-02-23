@@ -112,13 +112,29 @@ Concepts now, details later
 > - Branch for feature-freeze / release.
 > - Tags should be cheap.  Tag specific versions or branch locations.
 
-# Example:
+# When to branch?  Different philosophies
+
+- [Branching is hard, treat it like a puppy](http://www.ericsink.com/scm/scm_branches.html)
+
+    + CVS:  more like giving birth
+
+-
+  [May be hard, but better to branch more often](http://tech.puredanger.com/2008/06/03/release-and-branching-strategies/)
+
+    + Subversion:  Easier, but still tricky
+    + [Collabnet strategy comparison](http://blogs.collab.net/subversion/2007/11/branching-strat/)
+
+- Branch early and often
+    + Git:  Whee!  Too easy?  Just clone and start working.
+    + [Git branching](http://gitguru.com/2009/02/18/branching-strategies-overview/)
+
+# Example
 
 ![Branching on bug, feature release](RHQ_ReposModel.png "bug/feature/release")
 
-# The right way to Merge:
+# The right way to merge:
 
-- merge from parent to child often
+- Merge from parent to child often
     + to keep track of orthogonal changes and avoid conflicts.
 - One final merge from parent to child,
     + before reintegrating merge from child back to parent again.
