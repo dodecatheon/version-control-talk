@@ -124,14 +124,15 @@ Concepts now, details later
 
 - Branch early and often
     + Git:  Whee!  Too easy?  Just clone and start working.
+    + [Git branching](http://gitguru.com/2009/02/18/branching-strategies-overview/)
 
-# Example:
+# Example
 
 ![Branching on bug, feature release](RHQ_ReposModel.png "bug/feature/release")
 
-# The right way to Merge:
+# The right way to merge:
 
-- merge from parent to child often
+- Merge from parent to child often
     + to keep track of orthogonal changes and avoid conflicts.
 - One final merge from parent to child,
     + before reintegrating merge from child back to parent again.
