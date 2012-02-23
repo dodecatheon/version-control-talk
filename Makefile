@@ -1,4 +1,7 @@
 all:	vctalk.html
 
 vctalk.html:	vctalk.md
-	pandoc -s --webtex -i -t slidy $< -o $@
+	pandoc -s --webtex \
+		--offline \
+		-t slidy \
+		$< -o $@
