@@ -23,14 +23,12 @@ Ted Stern
 <div class="slide">
 
 <h1>Why give this talk?</h1>
-<ul class="incremental">
-<li>Version control is 'hard', so people don't use it.
-<ul class="incremental">
+<ul>
+<li>Version control is 'hard', so not used.</li>
 <li>Copying seems good enough</li>
-</ul></li>
 <li>Informal development postpones version control pain</li>
 <li>You need to evangelize VCS to your group</li>
-<li>People don't understand branching</li>
+<li>People do not understand branching</li>
 <li>How does Version Control Software (VCS) fit into Software Configuration Management?</li>
 </ul>
 </div>
@@ -40,7 +38,12 @@ Ted Stern
 <h1>A version control story</h1>
 <p>A project was already maintained under Subversion, but was transferred to another user.</p>
 <p>The new user abandoned all existing history and started fresh with a new Subversion repo.</p>
-<p>What's wrong with this picture? &gt; - Can't re-create previous versions. &gt; - Any lessons learned have been lost. &gt; - What was broken that needed fixing?</p>
+<p>What is wrong with this picture?</p>
+<ul>
+<li>Cannot re-create previous versions.</li>
+<li>Any lessons learned have been lost.</li>
+<li>What was broken that needed fixing?</li>
+</ul>
 </div>
 
 <div class="slide">
@@ -49,10 +52,12 @@ Ted Stern
 <ul class="incremental">
 <li>Typewriter and paper</li>
 <li>Disk and Editor</li>
-<li>Backup files file.back1 file.back2 file.back3</li>
-<li>Backup directory snapshots / archives directory.date1 directory.date2</li>
+<li><p>Backup files</p>
+<p>file.back1 file.back2 file.back3</p></li>
+<li><p>Backup directory snapshots / archives</p>
+<p>directory.date1 directory.date2</p></li>
 <li><em>Save only differences</em></li>
-<li>Track directories and name-changes</li>
+<li><p>Track directories and name-changes</p></li>
 </ul>
 <p>See <a href="http://tom.preston-werner.com/2009/05/19/the-git-parable.html">The Git Parable</a>.</p>
 </div>
@@ -64,9 +69,11 @@ Ted Stern
 <li>Backup and Restore</li>
 <li>Collaboration</li>
 <li>Short/Long-term undo</li>
-<li>Tracking:</li>
+<li>Tracking:
+<ul class="incremental">
 <li>Changes</li>
 <li>Ownership</li>
+</ul></li>
 <li>Branching / Merging / Third-party software</li>
 </ul>
 </div>
@@ -74,7 +81,7 @@ Ted Stern
 <div class="slide">
 
 <h1>Terms</h1>
-<ul>
+<ul class="incremental">
 <li>Repository</li>
 <li>Client / Server</li>
 <li>Working Copy (checkout)</li>
@@ -85,7 +92,7 @@ Ted Stern
 <div class="slide">
 
 <h1>Basic actions</h1>
-<ul>
+<ul class="incremental">
 <li>Revision</li>
 <li>Head</li>
 <li>Add</li>
@@ -98,7 +105,7 @@ Ted Stern
 <div class="slide">
 
 <h1>Advanced actions</h1>
-<ul>
+<ul class="incremental">
 <li>Branch</li>
 <li>Diff</li>
 <li>Merge</li>
@@ -111,7 +118,7 @@ Ted Stern
 <div class="slide">
 
 <h1>Non-obvious stuff</h1>
-<ul>
+<ul class="incremental">
 <li>Track only the source, not the build products.</li>
 <li>Track directories, binaries, file renaming</li>
 <li>Group changes with atomic commits</li>
@@ -129,7 +136,7 @@ Ted Stern
 <div class="slide">
 
 <h1>Basic strategy</h1>
-<ul class="incremental">
+<ul>
 <li>Checkout working copy</li>
 <li>Edit some files</li>
 <li>Save file(s)</li>
@@ -141,7 +148,7 @@ Ted Stern
 <div class="slide">
 
 <h1>Branch/Merge, a &quot;meta&quot; version of checkout/change/save/commit</h1>
-<ul class="incremental">
+<ul>
 <li>Mainline trunk for development. The trunk should always &quot;work&quot;.</li>
 <li>Branch for any change bigger than &quot;a day&quot;.</li>
 <li>Branch for bug fixes.</li>
@@ -177,7 +184,11 @@ Ted Stern
 <div class="slide">
 
 <h1>Issue Tracking</h1>
-<p>It is a Good Thing to coordinate issue tracking with Version Control. &gt; - Ticket can track multiple changes on a branch, for bug, feature, release. &gt; - If you have good issue tracking and mod integration, you can tie together a set of mods into one composite mod.</p>
+<p>It is a Good Thing to coordinate issue tracking with Version Control.</p>
+<ul class="incremental">
+<li>Ticket can track multiple changes on a branch, for bug, feature, release.</li>
+<li>If you have good issue tracking and mod integration, you can tie together a set of mods into one composite mod.</li>
+</ul>
 </div>
 
 <div class="slide">
@@ -209,15 +220,15 @@ Ted Stern
 <div class="slide">
 
 <h1>Issue tracking examples</h1>
-<ul>
+<ul class="incremental">
 <li>Trac
-<ul>
+<ul class="incremental">
 <li>Works with Subversion, Git</li>
 <li>Simpler than Bugzilla</li>
 <li>In OSS Toolkit</li>
 </ul></li>
 <li>GitHub
-<ul>
+<ul class="incremental">
 <li>Wave of future? <a href="http://www.wired.com/wiredenterprise/2012/02/github/all/1">Wired article, 02/21/2012</a></li>
 <li>Built in issue tracking, makes branching/merging/collaboration easy</li>
 <li>Enterprise license available</li>
@@ -228,14 +239,16 @@ Ted Stern
 <div class="slide">
 
 <h1>Conclusions, part 1</h1>
-<ul class="incremental">
+<ul>
 <li>Pick the VCS that is closest to the model for your project (centralized vs. distributed; consolidated source vs. lots of forking).</li>
+</ul>
+<ul class="incremental">
 <li>Use an issue tracker that automatically integrates with your VCS.
 <ul class="incremental">
 <li><em>e.g.</em>, Trac</li>
 </ul></li>
-<li>Wrapping abstract actions in scripts</li>
-<li>If you have to wrap VCS in complex helper scripts, it is not the best tool for your project, though it may be the best currently available. Always ask yourself: &quot;Is this tool helping me more than it gets in the way?&quot; If it gets in the way more than 20% of the time, it is time to find a new tool.</li>
+<li><p>Wrapping abstract actions in scripts</p></li>
+<li><p>If you have to wrap VCS in complex helper scripts, it is not the best tool for your project, though it may be the best currently available. Always ask yourself: &quot;Is this tool helping me more than it gets in the way?&quot; If it gets in the way more than 20% of the time, it is time to find a new tool.</p></li>
 </ul>
 </div>
 
@@ -250,8 +263,10 @@ Ted Stern
 <h1>Conclusions, part 3 ...</h1>
 <ul class="incremental">
 <li>There is no best software</li>
-<li>Subversion vs. Git:</li>
+<li>Subversion vs. Git:
+<ul class="incremental">
 <li>http://www.codeforest.net/git-vs-svn</li>
+</ul></li>
 </ul>
 </div>
 </body>
