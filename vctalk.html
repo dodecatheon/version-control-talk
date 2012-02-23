@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Ted Stern" />
+  <meta name="date" content="February 23, 2012" />
+  <link rel="stylesheet" type="text/css" media="screen, projection, print" 
+    href="http://www.w3.org/Talks/Tools/Slidy/slidy.css" /> 
+  <script src="http://www.w3.org/Talks/Tools/Slidy/slidy.js.gz"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide cover title">
+  <h1 class="title">Version Control: Why, What and How</h1>
+  <p class="author">
+Ted Stern
+  </p>
+  <p class="date">February 23, 2012</p> 
+</div>
+<div class="slide">
+
+<h1>Why give this talk?</h1>
+<ul class="incremental">
+<li>Version control is 'hard', so people don't use it.
+<ul class="incremental">
+<li>Copying seems good enough</li>
+</ul></li>
+<li>Informal development postpones version control pain</li>
+<li>You need to evangelize VCS to your group</li>
+<li>People don't understand branching</li>
+<li>How does Version Control Software (VCS) fit into Software Configuration Management?</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>A version control story</h1>
+<p>A project was already maintained under Subversion, but was transferred to another user.</p>
+<p>The new user abandoned all existing history and started fresh with a new Subversion repo.</p>
+<p>What's wrong with this picture? &gt; - Can't re-create previous versions. &gt; - Any lessons learned have been lost. &gt; - What was broken that needed fixing?</p>
+</div>
+
+<div class="slide">
+
+<h1>Levels of abstraction</h1>
+<ul class="incremental">
+<li>Typewriter and paper</li>
+<li>Disk and Editor</li>
+<li>Backup files file.back1 file.back2 file.back3</li>
+<li>Backup directory snapshots / archives directory.date1 directory.date2</li>
+<li><em>Save only differences</em></li>
+<li>Track directories and name-changes</li>
+</ul>
+<p>See <a href="http://tom.preston-werner.com/2009/05/19/the-git-parable.html">The Git Parable</a>.</p>
+</div>
+
+<div class="slide">
+
+<h1>Reasons</h1>
+<ul class="incremental">
+<li>Backup and Restore</li>
+<li>Collaboration</li>
+<li>Short/Long-term undo</li>
+<li>Tracking:</li>
+<li>Changes</li>
+<li>Ownership</li>
+<li>Branching / Merging / Third-party software</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Terms</h1>
+<ul>
+<li>Repository</li>
+<li>Client / Server</li>
+<li>Working Copy (checkout)</li>
+<li>Trunk / Mainline</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Basic actions</h1>
+<ul>
+<li>Revision</li>
+<li>Head</li>
+<li>Add</li>
+<li>Commit (checkin)</li>
+<li>Update (pull)</li>
+<li>Revert</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Advanced actions</h1>
+<ul>
+<li>Branch</li>
+<li>Diff</li>
+<li>Merge</li>
+<li>Conflict</li>
+<li>Resolve</li>
+</ul>
+<p>See <a href="http://betterexplained.com/articles/a-visual-guide-to-version-control/">Basic Guide to Version Control</a></p>
+</div>
+
+<div class="slide">
+
+<h1>Non-obvious stuff</h1>
+<ul>
+<li>Track only the source, not the build products.</li>
+<li>Track directories, binaries, file renaming</li>
+<li>Group changes with atomic commits</li>
+<li>Why is branching and merging a Good Thing?</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>End of 'Why?'</h1>
+<p>Now on to <strong>What you want to do</strong>.</p>
+<p>Concepts now, details later</p>
+</div>
+
+<div class="slide">
+
+<h1>Basic strategy</h1>
+<ul class="incremental">
+<li>Checkout working copy</li>
+<li>Edit some files</li>
+<li>Save file(s)</li>
+<li>Stage commit</li>
+<li>Commit</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Branch/Merge, a &quot;meta&quot; version of checkout/change/save/commit</h1>
+<ul class="incremental">
+<li>Mainline trunk for development. The trunk should always &quot;work&quot;.</li>
+<li>Branch for any change bigger than &quot;a day&quot;.</li>
+<li>Branch for bug fixes.</li>
+<li>Branch for features.</li>
+<li>Branch for feature-freeze / release.</li>
+<li>Tags should be cheap. Tag specific versions or branch locations.</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Example:</h1>
+<div class="figure">
+<img src="RHQ_ReposModel.png" title="bug/feature/release" alt="Branching on bug, feature release" /><p class="caption">Branching on bug, feature release</p>
+</div>
+</div>
+
+<div class="slide">
+
+<h1>The right way to Merge:</h1>
+<ul class="incremental">
+<li>merge from parent to child often
+<ul class="incremental">
+<li>to keep track of orthogonal changes and avoid conflicts.</li>
+</ul></li>
+<li>One final merge from parent to child,
+<ul class="incremental">
+<li>before reintegrating merge from child back to parent again.</li>
+</ul></li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Issue Tracking</h1>
+<p>It is a Good Thing to coordinate issue tracking with Version Control. &gt; - Ticket can track multiple changes on a branch, for bug, feature, release. &gt; - If you have good issue tracking and mod integration, you can tie together a set of mods into one composite mod.</p>
+</div>
+
+<div class="slide">
+
+<h1>How you do it</h1>
+<p>There is no best Version Control software, and you can't really say that there is one until each of those tasks in Part 2 is easy, intuitive, and architecture independent.</p>
+<p>That said, the best we've got right now are Subversion and Git.</p>
+</div>
+
+<div class="slide">
+
+<h1>Strengths of Subversion, vs. Strengths of Git</h1>
+<p>Issue tracking that works with either Subversion or Git. Again, there is no best software that does everything we want.</p>
+</div>
+
+<div class="slide">
+
+<h1>Centralized repository: Subversion</h1>
+</div>
+
+<div class="slide">
+
+<h1>Distributed development: Git</h1>
+<ul class="incremental">
+<li>Examples of checkout/commit and branch/merge cycle in Subversion and Git.</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Issue tracking examples</h1>
+<ul>
+<li>Trac
+<ul>
+<li>Works with Subversion, Git</li>
+<li>Simpler than Bugzilla</li>
+<li>In OSS Toolkit</li>
+</ul></li>
+<li>GitHub
+<ul>
+<li>Wave of future? <a href="http://www.wired.com/wiredenterprise/2012/02/github/all/1">Wired article, 02/21/2012</a></li>
+<li>Built in issue tracking, makes branching/merging/collaboration easy</li>
+<li>Enterprise license available</li>
+</ul></li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Conclusions, part 1</h1>
+<ul class="incremental">
+<li>Pick the VCS that is closest to the model for your project (centralized vs. distributed; consolidated source vs. lots of forking).</li>
+<li>Use an issue tracker that automatically integrates with your VCS.
+<ul class="incremental">
+<li><em>e.g.</em>, Trac</li>
+</ul></li>
+<li>Wrapping abstract actions in scripts</li>
+<li>If you have to wrap VCS in complex helper scripts, it is not the best tool for your project, though it may be the best currently available. Always ask yourself: &quot;Is this tool helping me more than it gets in the way?&quot; If it gets in the way more than 20% of the time, it is time to find a new tool.</li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Conclusions, part 2 ...</h1>
+<p>Subversion, Git, et al. are actively developed, so don't freeze your VCS/SCM model. Be ready to change to a better method <strong>when</strong>, <em>not if</em> it becomes available. Ensure that you can convert your existing version history and issue tracking to new systems.</p>
+</div>
+
+<div class="slide">
+
+<h1>Conclusions, part 3 ...</h1>
+<ul class="incremental">
+<li>There is no best software</li>
+<li>Subversion vs. Git:</li>
+<li>http://www.codeforest.net/git-vs-svn</li>
+</ul>
+</div>
+</body>
+</html>
