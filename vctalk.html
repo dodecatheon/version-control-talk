@@ -23,26 +23,29 @@ Ted Stern
 <div class="slide">
 
 <h1>Why give this talk?</h1>
-<ul>
-<li>Version control is 'hard', so not used.</li>
-<li>Copying seems good enough</li>
-<li>Informal development postpones version control pain</li>
-<li>You need to evangelize VCS to your group</li>
-<li>People do not understand branching</li>
-<li>How does Version Control Software (VCS) fit into Software Configuration Management?</li>
+<ul class="incremental">
+<li><p>Version control is 'hard', so not used.</p></li>
+<li><p>Copying seems good enough</p></li>
+<li><p>Informal development postpones version control pain</p></li>
+<li><p>You need to evangelize VCS to your group</p></li>
+<li><p>People do not understand branching</p></li>
+<li><p>How does Version Control Software (VCS) fit into Software Configuration Management?</p></li>
 </ul>
 </div>
 
 <div class="slide">
 
 <h1>A version control story</h1>
-<p>A project was already maintained under Subversion, but was transferred to another user.</p>
-<p>The new user abandoned all existing history and started fresh with a new Subversion repo.</p>
-<p>What is wrong with this picture?</p>
-<ul>
-<li>Cannot re-create previous versions.</li>
-<li>Any lessons learned have been lost.</li>
-<li>What was broken that needed fixing?</li>
+<ul class="incremental">
+<li><p>A project was already maintained under Subversion, but was transferred to another user.</p></li>
+<li><p>The new user abandoned all existing history and started fresh with a new Subversion repo.</p></li>
+<li><p>What is wrong with this picture?</p></li>
+<li><p>Cannot re-create previous versions.</p></li>
+<li><p>Any lessons learned have been lost.</p></li>
+<li>What was broken that needed fixing?
+<ul class="incremental">
+<li>Most modern VC software can move/rename files</li>
+</ul></li>
 </ul>
 </div>
 
@@ -50,13 +53,16 @@ Ted Stern
 
 <h1>Levels of abstraction</h1>
 <ul class="incremental">
-<li>Typewriter and paper</li>
-<li>Disk and Editor</li>
+<li><p>Typewriter and paper</p></li>
+<li><p>Disk and Editor</p></li>
 <li><p>Backup files</p>
-<p>file.back1 file.back2 file.back3</p></li>
+<p>file.back1</p>
+<p>file.back2</p>
+<p>file.back3</p></li>
 <li><p>Backup directory snapshots / archives</p>
-<p>directory.date1 directory.date2</p></li>
-<li><em>Save only differences</em></li>
+<p>directory.date1</p>
+<p>directory.date2</p></li>
+<li><p><em>Save only differences</em></p></li>
 <li><p>Track directories and name-changes</p></li>
 </ul>
 <p>See <a href="http://tom.preston-werner.com/2009/05/19/the-git-parable.html">The Git Parable</a>.</p>
@@ -160,7 +166,29 @@ Ted Stern
 
 <div class="slide">
 
-<h1>Example:</h1>
+<h1>When to branch? Different philosophies</h1>
+<ul class="incremental">
+<li><p><a href="http://www.ericsink.com/scm/scm_branches.html">Branching is hard, treat it like a puppy</a></p>
+<ul class="incremental">
+<li>CVS: more like giving birth</li>
+</ul></li>
+</ul>
+<p>- <a href="http://tech.puredanger.com/2008/06/03/release-and-branching-strategies/">May be hard, but better to branch more often</a></p>
+<pre><code>+ Subversion:  Easier, but still tricky
++ [Collabnet strategy comparison](http://blogs.collab.net/subversion/2007/11/branching-strat/)
+</code></pre>
+<ul class="incremental">
+<li>Branch early and often
+<ul class="incremental">
+<li>Git: Whee! Too easy? Just clone and start working.</li>
+<li><a href="http://gitguru.com/2009/02/18/branching-strategies-overview/">Git branching</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div class="slide">
+
+<h1>Example</h1>
 <div class="figure">
 <img src="RHQ_ReposModel.png" title="bug/feature/release" alt="Branching on bug, feature release" /><p class="caption">Branching on bug, feature release</p>
 </div>
@@ -168,9 +196,9 @@ Ted Stern
 
 <div class="slide">
 
-<h1>The right way to Merge:</h1>
+<h1>The right way to merge:</h1>
 <ul class="incremental">
-<li>merge from parent to child often
+<li>Merge from parent to child often
 <ul class="incremental">
 <li>to keep track of orthogonal changes and avoid conflicts.</li>
 </ul></li>

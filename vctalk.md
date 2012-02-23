@@ -4,43 +4,57 @@
 
 # Why give this talk?
 
-> - Version control is 'hard', so not used.
-> - Copying seems good enough
-> - Informal development postpones version control pain
-> - You need to evangelize VCS to your group
-> - People do not understand branching
-> - How does Version Control Software (VCS) fit into Software Configuration Management?
+- Version control is 'hard', so not used.
+
+- Copying seems good enough
+
+- Informal development postpones version control pain
+
+- You need to evangelize VCS to your group
+
+- People do not understand branching
+
+- How does Version Control Software (VCS) fit into Software Configuration Management?
 
 # A version control story
 
-A project was already maintained under Subversion, but was transferred to
+- A project was already maintained under Subversion, but was transferred to
 another user.
 
-The new user abandoned all existing history and started fresh with a new
+- The new user abandoned all existing history and started fresh with a new
 Subversion repo.
 
-What is wrong with this picture?
+- What is wrong with this picture?
 
-> - Cannot re-create previous versions.
-> - Any lessons learned have been lost.
-> - What was broken that needed fixing?
+- Cannot re-create previous versions.
+
+- Any lessons learned have been lost.
+
+- What was broken that needed fixing?
+    + Most modern VC software can move/rename files
 
 # Levels of abstraction
 
 - Typewriter and paper
+
 - Disk and Editor
+
 - Backup files
 
     file.back1
+
     file.back2
+
     file.back3
 
 - Backup directory snapshots / archives
 
     directory.date1
+
     directory.date2
 
 - *Save only differences*
+
 - Track directories and name-changes
 
 See [The Git Parable](http://tom.preston-werner.com/2009/05/19/the-git-parable.html).
