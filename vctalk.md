@@ -118,9 +118,11 @@ Concepts now, details later
 
     + CVS:  more like giving birth
 
-    + Subversion:  Easier, but still tricky
+-
+  [May be hard, but better to branch more often](http://tech.puredanger.com/2008/06/03/release-and-branching-strategies/)
 
-- [May be hard, but better to branch more often](http://tech.puredanger.com/2008/06/03/release-and-branching-strategies/)
+    + Subversion:  Easier, but still tricky
+    + [Collabnet strategy comparison](http://blogs.collab.net/subversion/2007/11/branching-strat/)
 
 - Branch early and often
     + Git:  Whee!  Too easy?  Just clone and start working.
